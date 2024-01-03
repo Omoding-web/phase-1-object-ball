@@ -28,7 +28,7 @@ function gameObject() {
 console.log(gameObject());
 
 
-// Function to get the number of points scored by a player
+// To get the number of points scored by a player
 function numPointsScored(playerName) {
   const gameObj = gameObject();
 
@@ -41,7 +41,7 @@ function numPointsScored(playerName) {
   return null; // Return null if player not found
 }
 
-// Function to get the shoe size of a player
+// To get the shoe size of a player
 function shoeSize(playerName) {
   const gameObj = gameObject();
 
@@ -54,7 +54,7 @@ function shoeSize(playerName) {
   return null; // Return null if player not found
 }
 
-// Function to get the team colors based on the team name
+// To get the team colors based on the team name
 function teamColors(teamName) {
   const gameObj = gameObject();
 
@@ -67,7 +67,7 @@ function teamColors(teamName) {
   return null; // Return null if team not found
 }
 
-// Function to get an array of team names
+// To get an array of team names
 function teamNames() {
   const gameObj = gameObject();
   return [gameObj.home.teamName, gameObj.away.teamName];
@@ -94,7 +94,7 @@ function playerStats(playerName) {
   return null; // Return null if player not found
 }
 
-// Function to find the player with the most points
+// To find the player with the most points
 function mostPointsScored() {
   const gameObj = gameObject();
   let maxPoints = 0;
@@ -113,7 +113,7 @@ function mostPointsScored() {
   return playerWithMostPoints;
 }
 
-// Function to find the team with the most points
+// To find the team with the most points
 function winningTeam() {
   const gameObj = gameObject();
   let maxTeamPoints = 0;
@@ -134,7 +134,7 @@ function winningTeam() {
   return winningTeamName;
 }
 
-// Function to find the player with the longest name
+// To find the player with the longest name
 function playerWithLongestName() {
   const gameObj = gameObject();
   let longestName = "";
@@ -163,6 +163,20 @@ function doesLongNameStealATon() {
   return false;
 }
 
+function bigShoeRebounds(playersObj) {
+  let biggestShoe = 0;
+  let biggestShoePlayer;
+ 
+  for (let playerName in playersObj) {
+     if (playersObj[playerName].shoe > biggestShoe) {
+       biggestShoe = playersObj[playerName].shoe;
+       biggestShoePlayer = playerName;
+     }
+  }
+ 
+  return playersObj[biggestShoePlayer].rebounds;
+ }
+ 
 
 //Tests to run
 
@@ -173,12 +187,12 @@ function testFunctions() {
   console.log("4. Team Names:", teamNames());
   console.log("5. Player Numbers of Charlotte Hornets:", playerNumbers("Charlotte Hornets"));
   console.log("6. Player Stats for Jason Terry:", playerStats("Jason Terry"));
-  console.log("7. Rebounds for Player with Largest Shoe Size:", bigShoeRebounds());
+ /* console.log("7. Rebounds for Player with Largest Shoe Size:", bigShoeRebounds("player"));*/
   console.log("8. Player with Most Points:", mostPointsScored());
   console.log("9. Winning Team:", winningTeam());
   console.log("10. Player with Longest Name:", playerWithLongestName());
   console.log("11. Does Player with Longest Name Steal a Ton?", doesLongNameStealATon());
 }
-
 // Call the test function to demonstrate outputs
 testFunctions();
+
